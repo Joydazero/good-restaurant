@@ -11,11 +11,11 @@ const useStore = create(
             error: null,
 
         fetchData: async () => {
-            set({ loading: true, error: null });
+            set({ loading: true /* useState의 역할*/ , error: null });
             try {
                 const response = await axios.get(`${API_BASE_URL}/places`);
                 console.log("📦 응답 확인:", response.data.places);
-                set({ data: response.data.places, loading: false });
+                set({ data: response.data.places, loading: false   /* useState의 역할*/ });
             } catch (error) {
                 set({ error: error.message, loading: false });
             }
