@@ -1,11 +1,11 @@
 import React from 'react'
 
-function PlaceItem({name, loaction, img}) {
+function PlaceItem({title, image, description}) {
   return (
     <div className='bg-[#ccc] flex flex-col'>
-        <img src={img} alt="" />
-        <div>{name}</div>
-        <div>{loaction}</div>
+        <img src={image} alt="" />
+        <div>{title}</div>
+        <div>{description}</div>
     </div>
   )
 }
