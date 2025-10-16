@@ -1,16 +1,81 @@
-# React + Vite
+# [나만의 맛집 Project]
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1단계 미션지 : 나만의 맛집 페이지 레이아웃 구성
 
-Currently, two official plugins are available:
+## **1. 와이어프레임 보고 컴포넌트 설계하기**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### **요구 사항:**
 
-## React Compiler
+- 와이어프레임을 기반으로 프로젝트 구조를 설계하고 컴포넌트를 정의합니다.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 구현 단계:
 
-## Expanding the ESLint configuration
+- **폴더 구조를 정의합니다.**
+    - React 프로젝트의 폴더 구조를 아래와 같이 구성합니다.
+    
+    ```
+         src/
+         ├── assets/                # 이미지, 로고, 배너 등 정적 자원
+         ├── api/                   # API 호출 및 관련 함수들을 관리
+         ├── components/            # 재사용 가능한 UI 컴포넌트
+         └── App.jsx                # 메인 APP 컴포넌트
+    ```
+    
+- **와이어프레임을 기반으로 React 컴포넌트를 설계합니다.**
+    - 아래의 와이어프레임 이미지를 참고하여 컴포넌트를 분리하세요.
+        - 와이어프레임
+        
+        ![Frame (1).png](attachment:d440b070-27d6-4d3f-be48-66553347f1d7:Frame_(1).png)
+        
+    - 컴포넌트 설계 방식과 디자인은 자유롭게 구성하세요.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## **2. 서버 세팅하기**
+
+### 요구 사항:
+
+- 제공된 서버 파일을 clone하여 로컬 서버를 실행합니다.
+
+### 구현 단계:
+
+- **제공된 GitHub 링크에서 서버 파일을 clone합니다.**
+    
+    https://github.com/yeah1832/eatingMark-BE
+    
+- **서버를 실행합니다.**
+    - Node.js와 npm이 설치되어 있어야 합니다.
+        - 아래 명령어를 실행합니다(eatingMark-BE 폴더 기준)
+            
+            ```bash
+            npm install
+            node app.js
+            ```
+            
+    - 서버가 성공적으로 실행되면 `http://localhost:3000`에서 API 요청을 받을 준비가 완료됩니다.
+        - 아래와 같이 보인다면 성공적으로 실행된 것입니다.
+            
+            ![스크린샷 2025-02-27 오후 2.49.17.png](attachment:a0c2dc60-e5d8-4019-8bc9-07f8a40ccf01:스크린샷_2025-02-27_오후_2.49.17.png)
+            
+    - **서버는 React 프로젝트와 분리하여 별도의 폴더에 clone하며, 서버의 코드를 절대 수정해서는 안됩니다.**
+- **Swagger 문서와 비교하며 app.js 파일의 흐름을 이해합니다.**
+    - 주요 엔드포인트:
+        - `/places`: 전체 맛집 데이터 제공
+        - `/users/places`: 나만의 맛집 데이터 제공 및 저장
+        - `/users/places/{id}`: 나만의 맛집 삭제
+    - 데이터는 `data/` 폴더의 JSON 파일에서 가져옵니다.
+    - 참고 자료: [엔드포인트란?](https://rebornbb.tistory.com/entry/Web-Endpoint%EC%97%90-%EB%8C%80%ED%95%9C-%EC%84%A4%EB%AA%85)
+
+## **3. API 문서 보고 전체 맛집 데이터 불러오기**
+
+### 요구 사항:
+
+- Swagger 문서를 참고하여 전체 맛집 데이터를 화면에 출력합니다.
+
+### 구현 단계:
+
+- **Swagger 문서를 참고하여 요청/응답 구조를 이해합니다.**
+    - Swagger 문서: https://yeah1832.github.io/eatingMark-swagger-ui/#/default
+    - 참고 자료: [백엔드랑 소통 및 그냥 알아두면 좋은 팁](https://www.notion.so/15acaf5650aa80888a54cb95b47a8a03?pvs=21)
+- **API 호출 후 데이터를 렌더링 합니다.**
+    - `fetch` 또는 `axios`를 사용하여 `/places` 엔드포인트로 `GET` 요청을 보냅니다.
+    - 받은 데이터를 React의 상태에 저장하고, 화면에 렌더링합니다.
+    - 이미지는 `baseUrl`과 받아온 `src` 정보를 조합하여 출력합니다.
