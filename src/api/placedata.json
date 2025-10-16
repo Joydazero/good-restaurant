@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "홍콩반점",
+    "location": "강남역",
+    "img" : "https://placehold.co/220"
+  },
+  {
+    "id": 2,
+    "name": "육쌈냉면",
+    "location": "홍대입구",
+    "img" : "https://placehold.co/220"
+  },
+  {
+    "id": 3,
+    "name": "스시히로바",
+    "location": "명동",
+    "img" : "https://placehold.co/220"
+  },
+  {
+    "id": 4,
+    "name": "버거헌터",
+    "location": "이태원",
+    "img" : "https://placehold.co/220"
+  },
+  {
+    "id": 5,
+    "name": "춘천닭갈비",
+    "location": "건대입구",
+    "img" : "https://placehold.co/220"
+  }
+]
