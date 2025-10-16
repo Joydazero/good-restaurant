@@ -17,7 +17,7 @@ function PlaceList() {
     <div className='flex flex-row flex-wrap bg-white'>
       <div className='gap-[1rem] flex justify-center w-full flex-col px-[1rem] py-[1rem]'>
         <h2 className='text-center text-2xl font-bold'>맛집 목록</h2>
-        <div className='flex-wrap flex justify-around'>
+        <div className='flex-wrap flex justify-around gap-5'>
         {data.map( (item) => (
           <PlaceItem key={item.id} 
             title={item.title}

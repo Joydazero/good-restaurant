@@ -5,7 +5,7 @@ import Favorite from './Favorite'
 
 function Home() {
   return (
-    <div className='flex flex-col w-full h-full items-start justify-start bg-[#7c7c7c]'>
+    <div className='flex w-full bg-[#7c7c7c] flex-col'>
         <Header></Header>
         <div className='flex flex-col justify-center w-full px-[2rem] py-[2rem]'>
             <section className='mt-[3rem]'>
