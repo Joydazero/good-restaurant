@@ -55,13 +55,15 @@ function PlaceList() {
         <h2 className='text-center text-2xl font-bold'>맛집 목록</h2>
         <div className='flex-wrap flex justify-start gap-5 mt-2'>
           <Suspense fallback={<Loading />}>
-              {sortedData.map((item) => (
+              {sortedData
+              .filter(item => item)
+              .map((item) => (
                 <PlaceItem
                   id={item.id}
                   key={item.id}
                   title={item.title}
-                  location={item.location}
                   image={`${API_BASE_URL}/${item.image.src}`}
+                  location={item.location}                  
                   description={item.description}
                 />
               ))}
