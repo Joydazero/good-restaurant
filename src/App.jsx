@@ -14,7 +14,7 @@ function App() {
     <> 
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/favorite" element={<Favorite/>} />
+          <Route path="/favorite/:placesId" element={<Favorite/>} />
           <Route path="/placelist" element={<PlaceList/>} />
           <Route path="/etc/loading" element={<Loading/>} />
           <Route path="/etc/notfound" element={<NouFound/>} />
