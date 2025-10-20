@@ -10,10 +10,8 @@ function PlaceItem({title, image, id : placesId, place, location }) {
       title, 
       image
     };
-
     const safePlace = Object.fromEntries( Object.entries(place).filter(([_,v])=> v != null ))
     console.log("📤 서버로 보낼 safePlace:", safePlace);
-    
     addFavoritePlace(safePlace)
     navigate(`/favorite/${placesId}`);   
   }
