@@ -1,8 +1,16 @@
-import React from 'react'
+import { useNavigate } from 'react-router-dom';
+import  useStore  from '../store/store'
 
-function PlaceItem({title, image, description}) {
+function PlaceItem({title, image, id : placesId, place }) {  
+ const { addFavoritePlace } = useStore();
+  const navigate = useNavigate();
+  const handleFavoriteItem = () => {
+    navigate(`/favorite/${placesId}`);
+    addFavoritePlace(place)
+  }
   return (
-    <div className='bg-[#ccc] flex flex-col w-[400px] h-[300px] relative rounded-[1.1rem] overflow-hidden'>
+    <div className='bg-[#ccc] flex flex-col w-[400px] h-[300px] relative rounded-[1.1rem] overflow-hidden'
+      onClick={handleFavoriteItem} >
         <img src={image} alt="" className='w-full h-full object-cover aspect-16/9' />
         <div className='absolute bottom-0 right-0 px-3 py-3 w-full text-right bg-[rgba(0,0,0,0.5)] text-white font-medium'>{title}</div>
         {/* <div>{description}</div> */}

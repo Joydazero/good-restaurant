@@ -57,6 +57,7 @@ function PlaceList() {
           <Suspense fallback={<Loading />}>
               {sortedData.map((item) => (
                 <PlaceItem
+                  id={item.id}
                   key={item.id}
                   title={item.title}
                   location={item.location}
