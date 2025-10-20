@@ -2,8 +2,11 @@ import React from 'react'
 import PlaceList from './PlaceList'
 import Header from '../pages/Header'
 import Favorite from './Favorite'
+import GeoLocationPlace from './GeoLocationPlace';
+
 
 function Home() {
+
   return (
     <div className='flex w-full bg-[#7c7c7c] flex-col'>
         <Header></Header>
@@ -14,6 +17,7 @@ function Home() {
             <section className='mt-[3rem]'>
                 <PlaceList/>
             </section>
+            
         </div>
     </div>
   )
