@@ -27,7 +27,7 @@ function PlaceList() {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const { latitude, longitude } = pos.coords;
-        console.log("📍 현재 위치:", latitude, longitude);
+        //console.log("📍 현재 위치:", latitude, longitude);
         setPosition({ latitude, longitude, error: null });
       },
       (err) => {
@@ -52,7 +52,7 @@ function PlaceList() {
   return (
     <div className='flex flex-row flex-wrap bg-white'>
       <div className='gap-[1rem] flex justify-center w-full flex-col px-[1rem] py-[1rem]'>
-        <h2 className='text-center text-2xl font-bold'>맛집 목록</h2>
+        <h2 className='text-center text-5xl font-bold dongle-regular'>맛집 목록</h2>
         <div className='flex-wrap flex justify-start gap-5 mt-2'>
           <Suspense fallback={<Loading />}>
               {sortedData

@@ -20,7 +20,6 @@ function PlaceItem({title, image, id : placesId, place, location }) {
       onClick={handleFavoriteItem} >
         <img src={image} alt="" className='w-full h-full object-cover aspect-16/9' />
         <div className='absolute bottom-0 right-0 px-3 py-3 w-full text-right bg-[rgba(0,0,0,0.5)] text-white font-medium'>{title}</div>
-        {/* <div>{description}</div> */}
     </div>
   )
 }
