@@ -27,8 +27,8 @@ const useStore = create(
                         Object.entries(place).filter(([_, v]) => v != null)
                     );
                     if (!place || !place.id) {
-                    console.error("🚨 place 데이터가 불완전합니다:", place);
-                    return;
+                        console.error("🚨 place 데이터가 불완전합니다:", place);
+                        return;
                     }
                     const response = await axios.post(`${API_BASE_URL}/users/places`, {place} ,{
                         headers: { "Content-Type": "application/json" }
@@ -58,6 +58,19 @@ const useStore = create(
                     const response = await axios.get(`${API_BASE_URL}/users/places`);
                     console.log("찜 데이터 응답 확인:", response.data.places);
                     set({ favoritePlaces : response.data.places, loading: false   /* useState의 역할*/ });                    
+                } catch (error) {
+                    set({ error: error.message, loading: false });
+                }
+            },
+            deleteFavoritePlace : async( id) => {     
+                 set({ loading: true /* useState의 역할*/ , error: null });           
+                try {
+                    const response = await axios.delete(`${API_BASE_URL}/users/places/${id}`);
+                    console.log("삭제 성공", response.data);
+
+                    set((state)=>({
+                        favoritePlaces : state.favoritePlaces.filter((item) => item.id !== id),
+                        loading: false }));
                 } catch (error) {
                     set({ error: error.message, loading: false });
                 }
