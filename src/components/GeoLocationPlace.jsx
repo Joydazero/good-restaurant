@@ -18,7 +18,7 @@ function GeoLocationPlace() {
 
     const success = (pos) => {
       const { latitude, longitude } = pos.coords;
-      console.log("✅ 현재 위치:", latitude, longitude);
+      //console.log("✅ 현재 위치:", latitude, longitude);
       setPosition({ latitude, longitude, error: null });
     };
 
@@ -42,20 +42,10 @@ function GeoLocationPlace() {
   
 
   return (
-    <div>
-      <h1>📍 현재 위치</h1>
-
+    <>
       {position.error && <p style={{ color: "red" }}>오류: {position.error}</p>}
-
-      {position.latitude !== null && position.longitude !== null ? (
-        <p>
-          위도: {position.latitude} <br />
-          경도: {position.longitude}
-        </p>
-      ) : (
-        <p>위치 정보를 불러오는 중...</p>
-      )}
-    </div>
+      
+    </>
   );
 }
 

@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams, useRouteLoaderData } from 'react-router-dom';
 import FavoriteItem from './FavoriteItem';
 import useStore from '../store/store'
 import Loading from './Loading';
 import { API_BASE_URL } from "../config";
 
 export default function Favorite() {
+  const navigate = useNavigate()
   const {  fetchFavoritePlaceData, favoritePlaces, loading, error  } = useStore();
+  const location = useLocation();
   const { placesId  } = useParams()
-  // const [favoriteItem , setFavoriteItem ]  = useState();    
+  const handleMoveList = () => {
+    navigate('/');
+  }  
   useEffect(() => {
       fetchFavoritePlaceData();
   }, [fetchFavoritePlaceData]);
@@ -35,6 +39,14 @@ export default function Favorite() {
             ))
             }
           </div>
+          {
+            placesId && (
+              <div className='flex justify-center mt-20'>
+                <button className='rounded-5 w-[5rem] h-[2.5rem] rounded-[.5rem] text-white border-1 bg-[rgba(0,0,0,1)] hover:bg-[rgba(0,0,0,0.4)] transition duration-.4 ease-in-out text-sm' onClick={handleMoveList}>목록으로</button>
+              </div>
+            )
+          }
+          
         </div>
       </div>
   )

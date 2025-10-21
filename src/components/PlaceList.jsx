@@ -27,7 +27,7 @@ function PlaceList() {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         const { latitude, longitude } = pos.coords;
-        console.log("📍 현재 위치:", latitude, longitude);
+        //console.log("📍 현재 위치:", latitude, longitude);
         setPosition({ latitude, longitude, error: null });
       },
       (err) => {
